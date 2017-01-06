@@ -1,6 +1,9 @@
 # Build folders
 build/
 
+# IDE
+.idea/
+
 # Logs
 logs
 *.log
