@@ -4,6 +4,9 @@ build/
 # IDE
 .idea/
 
+# Android
+.gradle/
+
 # Logs
 logs
 *.log
