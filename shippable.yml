@@ -8,7 +8,6 @@ integrations:
       type: slack
       recipients:
         - "#caronete-notification"
-        - "#test"
       on_success: always
       on_failure: always
       on_start: always
