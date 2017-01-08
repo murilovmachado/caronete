@@ -12,6 +12,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    top: 350,
+    left: 10,
+    right: 10,
+    bottom: 10,
+  }
 });
 
 export default styles;
