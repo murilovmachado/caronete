@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-const Home = props =>
+const Home = () =>
   <View style={styles.container}>
     <Text style={styles.welcome}>Welcome to Caronete</Text>
   </View>;
