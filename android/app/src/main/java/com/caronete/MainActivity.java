@@ -1,8 +1,11 @@
 package com.caronete;
 
 import com.facebook.react.ReactActivity;
+import android.content.Intent;
+import com.facebook.CallbackManager;
 
 public class MainActivity extends ReactActivity {
+    CallbackManager mCallbackManager = MainApplication.getCallbackManager();
 
     /**
      * Returns the name of the main component registered from JavaScript.
@@ -11,5 +14,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "caronete";
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

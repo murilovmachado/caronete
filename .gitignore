@@ -3,9 +3,11 @@ build/
 
 # IDE
 .idea/
+*.iml
 
 # Android
 .gradle/
+android/local.properties
 
 # Logs
 logs
