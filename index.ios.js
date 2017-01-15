@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import Home from './shared/Home';
+import Nav from './shared/Nav';
 
-AppRegistry.registerComponent('caronete', () => Home);
+AppRegistry.registerComponent('caronete', () => Nav);

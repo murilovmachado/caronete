@@ -5,9 +5,10 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 import { LoginButton } from 'react-native-fbsdk';
+import { Actions } from 'react-native-router-flux';
 import styles from './styles';
 
-const Home = () =>
+const Login = () =>
   <View style={styles.container}>
     <LoginButton
       readPermissions={["public_profile", "user_friends"]}
@@ -19,6 +20,7 @@ const Home = () =>
                 alert("Login was cancelled");
               } else {
                 alert("Login was successful with permissions: " + result.grantedPermissions)
+                Actions.friendList();
               }
             }
           }
@@ -27,4 +29,4 @@ const Home = () =>
     <Text style={styles.welcome}>Welcome to Caronete</Text>
   </View>;
 
-export default Home;
+export default Login;
