@@ -20,7 +20,7 @@ const Login = () =>
                 alert("Login was cancelled");
               } else {
                 alert("Login was successful with permissions: " + result.grantedPermissions)
-                Actions.friendList();
+                Actions.friendList({type: 'reset'});
               }
             }
           }

@@ -9,7 +9,7 @@ import styles from './styles';
 
 const Home = () =>
   <View style={styles.container}>
-    <Text onPress={Actions.friendList} style={styles.welcome}>Got in the car</Text>
+    <Text onPress={() => Actions.friendList({type: 'reset'})} style={styles.welcome}>Got in the car</Text>
     <MapView style={styles.map}/>
   </View>;
 
