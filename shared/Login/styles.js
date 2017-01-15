@@ -11,13 +11,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-    top: 350,
-    left: 10,
-    right: 10,
-    bottom: 10,
   }
 });
 
