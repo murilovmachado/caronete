@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import MapView from 'react-native-maps';
 import { Router } from '../Nav';
+import LogOut from '../LogOut';
 import styles from './styles';
 
 export default class Tracking extends Component {
@@ -14,6 +15,7 @@ export default class Tracking extends Component {
   static route = {
     navigationBar: {
       title: 'Tracking',
+      renderRight: () => <LogOut></LogOut>,
     }
   };
 

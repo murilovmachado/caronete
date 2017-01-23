@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
 import { Router } from '../Nav';
+import LogOut from '../LogOut';
 import styles from './styles';
 
 export default class FriendList extends Component {
@@ -19,6 +20,7 @@ export default class FriendList extends Component {
   static route = {
     navigationBar: {
       title: 'Friend List',
+      renderRight: () => <LogOut></LogOut>,
     }
   };
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Router } from '../Nav';
+import LogOut from '../LogOut';
 import styles from './styles';
 
 export default class WaitingAnswer extends Component {
@@ -14,6 +15,7 @@ export default class WaitingAnswer extends Component {
   static route = {
     navigationBar: {
       title: 'Waiting Answer',
+      renderRight: () => <LogOut></LogOut>,
     }
   };
 
