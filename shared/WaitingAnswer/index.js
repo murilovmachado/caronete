@@ -1,15 +1,36 @@
-import React from 'react';
-import {
-  Text,
-  View
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+import { Router } from '../Nav';
 import styles from './styles';
 
-const WaitingAnswer = () =>
-  <View style={styles.container}>
-    <Text onPress={() => Actions.tracking({type: 'reset'})} style={styles.welcome}>Friend Accepted</Text>
-    <Text onPress={() => Actions.friendList({type: 'reset'})} style={styles.welcome}>Cancel</Text>
-  </View>;
+export default class WaitingAnswer extends Component {
+  constructor(props) {
+    super(props);
 
-export default WaitingAnswer;
+    this.accept = this.accept.bind(this);
+    this.cancel = this.cancel.bind(this);
+  }
+
+  static route = {
+    navigationBar: {
+      title: 'Waiting Answer',
+    }
+  };
+
+  accept() {
+    this.props.navigator.immediatelyResetStack([Router.getRoute('tracking')], 0);
+  }
+
+  cancel() {
+    this.props.navigator.immediatelyResetStack([Router.getRoute('friendList')], 0);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text onPress={this.accept} style={styles.welcome}>Friend Accepted</Text>
+        <Text onPress={this.cancel} style={styles.welcome}>Cancel</Text>
+      </View>
+    );
+  }
+}

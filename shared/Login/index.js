@@ -1,29 +1,62 @@
-import React from 'react';
-import {
-  Text,
-  View
-} from 'react-native';
-import { LoginButton } from 'react-native-fbsdk';
-import { Actions } from 'react-native-router-flux';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+import { LoginButton, AccessToken } from 'react-native-fbsdk';
+import { Router } from '../Nav';
 import styles from './styles';
 
-const Login = () =>
-  <View style={styles.container}>
-    <Text style={styles.welcome}>Welcome to Caronete</Text>
-    <LoginButton
-      readPermissions={["public_profile", "user_friends"]}
-      onLoginFinished={
+export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false
+    };
+  }
+
+  async componentWillMount() {
+    const isLoggedIn = await Login.isLoggedIn();
+    this.setState({ isLoggedIn });
+  }
+
+  static isExpired(token) {
+    return Date.now() > token.getExpires();
+  }
+
+  static async isLoggedIn() {
+    const token = await AccessToken.getCurrentAccessToken();
+    if(token == null || Login.isExpired(token)) {
+      return false;
+    }
+
+    return true;
+  };
+
+  renderLogin() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Welcome to Caronete</Text>
+        <LoginButton
+          readPermissions={["public_profile", "user_friends"]}
+          onLoginFinished={
             (error, result) => {
               if (error) {
                 alert("Login failed with error: " + result.error);
               } else if (result.isCancelled) {
                 alert("Login was cancelled");
               } else {
-                Actions.friendList({type: 'reset'});
+                this.props.navigator.immediatelyResetStack([Router.getRoute('friendList')], 0);
               }
             }
           }
-      onLogoutFinished={() => alert("User logged out")}/>
-  </View>;
+        />
+      </View>
+    );
+  }
 
-export default Login;
+  render() {
+    if(this.state.isLoggedIn) {
+      this.props.navigator.immediatelyResetStack([Router.getRoute('friendList')], 0);
+    }
+
+    return this.renderLogin();
+  }
+}

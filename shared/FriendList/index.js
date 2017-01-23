@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import { GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+import { Router } from '../Nav';
 import styles from './styles';
 
 export default class FriendList extends Component {
   constructor(props) {
     super(props);
+    this.toWaitingAnswer = this.toWaitingAnswer.bind(this);
     this.fetchFriendsCallback = this.fetchFriendsCallback.bind(this);
     this.state = {
       friends: [],
@@ -14,6 +15,12 @@ export default class FriendList extends Component {
 
     new GraphRequestManager().addRequest(this.fetchFriends).start();
   }
+
+  static route = {
+    navigationBar: {
+      title: 'Friend List',
+    }
+  };
 
 
   get fetchFriendsConfig() {
@@ -47,11 +54,15 @@ export default class FriendList extends Component {
 
     const friendElements = friends.map((friend, index) => {
       return (
-        <Text key={index} onPress={Actions.waitingAnswer} style={styles.welcome}>{friend.name}</Text>
+        <Text key={index} onPress={this.toWaitingAnswer} style={styles.welcome}>{friend.name}</Text>
       );
     });
 
     return friendElements;
+  }
+
+  toWaitingAnswer() {
+    this.props.navigator.push(Router.getRoute('waitingAnswer'));
   }
 
   render() {

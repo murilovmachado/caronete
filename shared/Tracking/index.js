@@ -1,16 +1,32 @@
-import React from 'react';
-import {
-  Text,
-  View
-} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 import MapView from 'react-native-maps';
-import { Actions } from 'react-native-router-flux';
+import { Router } from '../Nav';
 import styles from './styles';
 
-const Home = () =>
-  <View style={styles.container}>
-    <Text onPress={() => Actions.friendList({type: 'reset'})} style={styles.welcome}>Got in the car</Text>
-    <MapView style={styles.map}/>
-  </View>;
+export default class Tracking extends Component {
+  constructor(props) {
+    super(props);
 
-export default Home;
+    this.finish = this.finish.bind(this);
+  }
+
+  static route = {
+    navigationBar: {
+      title: 'Tracking',
+    }
+  };
+
+  finish() {
+    this.props.navigator.immediatelyResetStack([Router.getRoute('friendList')], 0);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text onPress={this.finish} style={styles.welcome}>Got in the car</Text>
+        <MapView style={styles.map}/>
+      </View>
+    );
+  }
+}
