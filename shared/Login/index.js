@@ -17,6 +17,12 @@ export default class Login extends Component {
     this.setState({ isLoggedIn });
   }
 
+  componentDidUpdate() {
+    if(this.state.isLoggedIn) {
+      this.props.navigator.immediatelyResetStack([Router.getRoute('friendList')], 0);
+    }
+  }
+
   static isExpired(token) {
     return Date.now() > token.getExpires();
   }
@@ -30,7 +36,7 @@ export default class Login extends Component {
     return true;
   };
 
-  renderLogin() {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Caronete</Text>
@@ -50,13 +56,5 @@ export default class Login extends Component {
         />
       </View>
     );
-  }
-
-  render() {
-    if(this.state.isLoggedIn) {
-      this.props.navigator.immediatelyResetStack([Router.getRoute('friendList')], 0);
-    }
-
-    return this.renderLogin();
   }
 }

@@ -13,8 +13,6 @@ export default class FriendList extends Component {
     this.state = {
       friends: [],
     };
-
-    new GraphRequestManager().addRequest(this.fetchFriends).start();
   }
 
   static route = {
@@ -23,6 +21,10 @@ export default class FriendList extends Component {
       renderRight: () => <LogOut></LogOut>,
     }
   };
+
+  componentWillMount() {
+    new GraphRequestManager().addRequest(this.fetchFriends).start();
+  }
 
 
   get fetchFriendsConfig() {
