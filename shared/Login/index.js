@@ -34,7 +34,7 @@ export default class Login extends Component {
     }
 
     return true;
-  };
+  }
 
   render() {
     return (
@@ -58,3 +58,7 @@ export default class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  navigator: React.PropTypes.object,
+};

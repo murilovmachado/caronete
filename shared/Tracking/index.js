@@ -32,3 +32,7 @@ export default class Tracking extends Component {
     );
   }
 }
+
+Tracking.propTypes = {
+  navigator: React.PropTypes.object,
+};

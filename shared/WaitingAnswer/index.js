@@ -36,3 +36,7 @@ export default class WaitingAnswer extends Component {
     );
   }
 }
+
+WaitingAnswer.propTypes = {
+  navigator: React.PropTypes.object,
+};

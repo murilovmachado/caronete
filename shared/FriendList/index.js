@@ -77,3 +77,7 @@ export default class FriendList extends Component {
     );
   }
 }
+
+FriendList.propTypes = {
+  navigator: React.PropTypes.object,
+};

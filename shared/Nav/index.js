@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Text } from 'react-native';
 import Login from '../Login';
 import FriendList from '../FriendList';
 import WaitingAnswer from '../WaitingAnswer';

@@ -36,3 +36,7 @@ export default class LogOut extends Component {
     );
   }
 }
+
+LogOut.propTypes = {
+  navigator: React.PropTypes.object,
+};
