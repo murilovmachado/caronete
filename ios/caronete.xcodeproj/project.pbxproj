@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -49,6 +48,7 @@
 		B0B95B5E1E2AA930003050BE /* RCTFBSDKShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B95B471E2AA930003050BE /* RCTFBSDKShareHelper.m */; };
 		B0B95B5F1E2AA930003050BE /* react-native-fbsdk.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B0B95B4B1E2AA930003050BE /* react-native-fbsdk.podspec */; };
 		D23119A33A2042D782BC10BD /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5199D96EFBD94666BA220946 /* libAirMaps.a */; };
+		CC6B65623E2644EE8D224776 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 711052A4DBFC4152A29F6B99 /* libRNFIRMessaging.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +329,8 @@
 		B0B95B481E2AA930003050BE /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = RCTFBSDK.xcodeproj; sourceTree = "<group>"; };
 		B0B95B4B1E2AA930003050BE /* react-native-fbsdk.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "react-native-fbsdk.podspec"; sourceTree = "<group>"; };
 		BC76D08730A4CC5F2FA75321 /* Pods-caronete.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-caronete.debug.xcconfig"; path = "Pods/Target Support Files/Pods-caronete/Pods-caronete.debug.xcconfig"; sourceTree = "<group>"; };
+		B4D81A37293E479EBDB04281 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; name = "RNFIRMessaging.xcodeproj"; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		711052A4DBFC4152A29F6B99 /* libRNFIRMessaging.a */ = {isa = PBXFileReference; name = "libRNFIRMessaging.a"; path = "libRNFIRMessaging.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +362,7 @@
 				B04EC9AF1E2AB0B30054ACD3 /* FBSDKShareKit.framework in Frameworks */,
 				B04EC9AD1E2AB0B30054ACD3 /* FBSDKCoreKit.framework in Frameworks */,
 				12098743A0D0372205D7D9B2 /* libPods-caronete.a in Frameworks */,
+				CC6B65623E2644EE8D224776 /* libRNFIRMessaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +511,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				3DFE8B49AA204D72850FE16D /* AirMaps.xcodeproj */,
 				92E43B462E64427EBA107510 /* RCTFBSDK.xcodeproj */,
+				B4D81A37293E479EBDB04281 /* RNFIRMessaging.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1165,6 +1169,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/caronete.app/caronete";
@@ -1181,6 +1186,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
